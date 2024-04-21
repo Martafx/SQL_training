@@ -44,17 +44,17 @@ where type='laptop' and hd>=10
 Задание: 7 
 Найдите номера моделей и цены всех имеющихся в продаже продуктов (любого типа) производителя B (латинская буква).
 
-Select product.model,pc.price
+select product.model,pc.price
 from product
 join  pc on product.model=pc.model
 where product.maker='B'
-UNION
-Select product.model,laptop.price
+union
+select product.model,laptop.price
 from product
 join  laptop on product.model=laptop.model
 where product.maker='B'
-Union
-Select product.model,printer.price
+union
+select product.model,printer.price
 from product
 join  printer on product.model=printer.model
 where product.maker='B';
@@ -70,7 +70,7 @@ SELECT maker FROM product WHERE type ='laptop';
 Задание: 9 
 Найдите производителей ПК с процессором не менее 450 Мгц. Вывести: Maker
 
-Select distinct product.maker
+select distinct product.maker
 from product
 join pc on product.model=pc.model
 where speed>=450;
@@ -78,20 +78,20 @@ where speed>=450;
 Задание: 10 
 Найдите модели принтеров, имеющих самую высокую цену. Вывести: model, price
 
-Select model,price
+select model,price
 from printer
 where price =(select max(price) from printer);
 
 Задание: 11 
 Найдите среднюю скорость ПК.
 
-Select AVG(speed)
+select AVG(speed)
 from pc;
 
 Задание 12 :
 Найдите среднюю скорость ПК-блокнотов, цена которых превышает 1000 дол.
 
-Select AVG(speed) as avg_speed
+select AVG(speed) as avg_speed
 from laptop
 where price>1000;
 
